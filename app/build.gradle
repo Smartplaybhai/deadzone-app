@@ -1,0 +1,41 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace 'com.abdullah.deadzone'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'com.abdullah.deadzone'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+    buildFeatures { buildConfig true }
+    buildTypes {
+        // DEBUG = Google TEST ads (safe to tap)
+        debug {
+            manifestPlaceholders = [admobAppId: 'ca-app-pub-3940256099942544~3347511713']
+            buildConfigField 'String', 'INTER_ID', '"ca-app-pub-3940256099942544/1033173712"'
+            buildConfigField 'String', 'REWARD_ID', '"ca-app-pub-3940256099942544/5224354917"'
+        }
+        // RELEASE = your REAL ads (do NOT tap them yourself!)
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            manifestPlaceholders = [admobAppId: 'ca-app-pub-2519831355714403~3861928738']
+            buildConfigField 'String', 'INTER_ID', '"ca-app-pub-2519831355714403/2226161861"'
+            buildConfigField 'String', 'REWARD_ID', '"ca-app-pub-2519831355714403/3601894075"'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = '17' }
+    aaptOptions { noCompress 'mp3', 'mp4' }
+}
+dependencies {
+    implementation 'com.google.android.gms:play-services-ads:23.6.0'
+}
