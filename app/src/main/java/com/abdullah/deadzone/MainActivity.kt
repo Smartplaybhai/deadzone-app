@@ -48,8 +48,8 @@ class MainActivity : Activity() {
         if (hasFocus) hideBars()
     }
 
-    override fun onPause() { super.onPause(); web.onPause() }
-    override fun onResume() { super.onResume(); web.onResume() }
+    override fun onPause() { super.onPause(); web.onPause(); web.pauseTimers() }
+    override fun onResume() { super.onResume(); web.onResume(); web.resumeTimers() }
 }
 
 class AdsBridge(private val act: Activity, private val web: WebView) {

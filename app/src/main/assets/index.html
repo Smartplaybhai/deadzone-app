@@ -669,12 +669,12 @@ canvas{display:block}
 .st-coins{font-weight:900;letter-spacing:.12em;color:#ffc928;font-size:1rem;margin-left:auto;margin-right:14px}.st-coins span{color:#e9a43a}
 .st-wrap{display:flex;gap:12px;flex:1;min-height:0}
 .st-list{width:34%;display:flex;flex-direction:column;gap:8px;overflow-y:auto}
-.st-card{display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(14,16,18,.9);border:1px solid #3b3e44;cursor:pointer;flex:1;min-height:0}
+.st-card{display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(14,16,18,.9);border:1px solid #3b3e44;cursor:pointer;flex:1 0 58px;min-height:58px}
 .st-card.sel{border:2px solid #f0a030;background:linear-gradient(90deg,rgba(60,40,15,.7),rgba(18,16,12,.95))}
 .st-ci{width:42%;display:flex;align-items:center}.st-ci svg{width:100%;height:auto;max-height:42px;fill:#cfd2d6}.st-ci img,.st-big img{width:100%;height:auto;max-height:46px;object-fit:contain}
 .st-cn{font-weight:800;letter-spacing:.06em;font-size:.85rem;flex:1}.st-cn em{display:block;font-style:normal;font-size:.6rem;color:#58e08a;letter-spacing:.1em}
 .st-cl{font-size:.7rem;color:#e9a43a;font-weight:700}
-.st-det{flex:1;background:rgba(10,10,12,.88);border:1px solid #6b4a22;padding:10px 14px;display:flex;flex-direction:column;gap:6px;min-height:0;overflow:hidden}
+.st-det{flex:1;background:rgba(10,10,12,.88);border:1px solid #6b4a22;padding:10px 14px;display:flex;flex-direction:column;gap:6px;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}.st-det .gr-list,.st-det .st-msg{flex-shrink:0}.st-list{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .st-dh{display:flex;justify-content:space-between;align-items:center}.st-dn{font-weight:900;font-size:1.3rem;letter-spacing:.1em;color:#fff}.st-dt{font-size:.7rem;color:#e98a1f;letter-spacing:.1em;text-transform:uppercase}
 .st-pips{display:flex;gap:5px}.st-pips s{width:16px;height:9px;background:#26282c;border:1px solid #4a4e55;display:block}.st-pips s.on{background:linear-gradient(90deg,#d77a12,#ffb24a);border-color:#ffb24a}
 .st-big{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}.st-big svg{height:100%;max-height:90px;width:auto;fill:#e9e2d6}.st-big img{max-height:100%;width:auto;max-width:70%}
@@ -1886,8 +1886,11 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});
 const AUD={lobby:'audio/lobby.mp3',combat:'audio/combat.mp3',combat2:'audio/combat2.mp3',boss:'audio/boss.mp3',win:'audio/win.mp3',lose:'audio/lose.mp3'};
 const AEL={};let musWant=null,musUnlocked=false,musPaused=false;
 function aEl(n){if(!AEL[n]){const a=new Audio();a.preload='auto';a.src=AUD[n];a.loop=(n!='win'&&n!='lose');a.volume=n=='boss'?.6:n=='win'||n=='lose'?.7:.45;a.onerror=()=>{a._bad=1};AEL[n]=a}return AEL[n]}
-function musApply(){for(const k in AEL)if((k!=musWant||musPaused||!settings.sound)&&!AEL[k].paused)AEL[k].pause();if(!musWant||!settings.sound||!musUnlocked||musPaused)return;const a=aEl(musWant);if(a._bad)return;try{const p=a.play();if(p&&p.catch)p.catch(()=>{})}catch(e){}}
-function setMusic(n){if(n&&n!==musWant){try{aEl(n).currentTime=0}catch(e){}}musWant=n;musApply()}
+function musApply(){for(const k in AEL)if((k!=musWant||musPaused||window.__bg||!settings.sound)&&!AEL[k].paused)AEL[k].pause();if(!musWant||!settings.sound||!musUnlocked||musPaused||window.__bg)return;const a=aEl(musWant);if(a._bad)return;try{const p=a.play();if(p&&p.catch)p.catch(()=>{})}catch(e){}}
+document.addEventListener('visibilitychange',()=>{const h=document.hidden;window.__bg=h;try{if(h){if(running&&!paused&&!over)pause();for(const k in AEL)if(!AEL[k].paused)AEL[k].pause();if(ac&&ac.suspend)ac.suspend()}else{if(ac&&ac.resume)ac.resume()}}catch(e){}try{musApply()}catch(e){}});
+addEventListener('pagehide',()=>{window.__bg=true;try{if(ac&&ac.suspend)ac.suspend();musApply()}catch(e){}});
+addEventListener('pageshow',()=>{window.__bg=document.hidden;try{if(!document.hidden&&ac&&ac.resume)ac.resume();musApply()}catch(e){}});
+function setMusic(n){if(n=='combat'||n=='combat2'||n=='boss')n=null;if(n&&n!==musWant){try{aEl(n).currentTime=0}catch(e){}}musWant=n;musApply()}
 function cTrack(){return(mode.id=='norm'?curLevel>15:P.wave>=10)?'combat2':'combat'}
 (function(){const un=()=>{if(musUnlocked)return;musUnlocked=true;musApply();for(const k in AUD)if(k!=musWant)aEl(k)};['pointerdown','touchstart','keydown','click'].forEach(e=>addEventListener(e,un,{passive:true}))})();
 const MODES=[{id:'norm',n:'NORMAL',d:'50 levels. Clear a level to unlock the next.'},{id:'surv',n:'SURVIVAL',d:'Endless waves. Last as long as you can.'},{id:'time',n:'TIME ATTACK',d:'3 minutes. Score as much as you can.',t:180},{id:'boss',n:'BOSS RUSH',d:'Only bosses and tanks. No mercy.'},{id:'hard',n:'HARDCORE',d:'Double damage. No healing between waves.',dmgx:2,heal:0}];
