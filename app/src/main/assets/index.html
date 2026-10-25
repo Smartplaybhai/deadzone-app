@@ -24,6 +24,47 @@ body.lob-m .lx-prof{width:min(23vw,300px)}
 .ms-c.off:after{background:none}.ms-c.off .ms-t b{color:#8b8f96}.ms-c.off .ms-t em{color:#e9a43a}
 @media (max-aspect-ratio:4/3){.ms-wrap{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr)}}
 </style>
+<style>
+#screen-loadout .screen-header{display:flex;align-items:center;gap:14px;height:max(8.4vh,44px);padding:0 14px 0 8px;margin-bottom:8px;background:linear-gradient(90deg,#16120d,#0a0a0c 55%);border:0;border-bottom:2px solid #e98a1f;border-left:0;clip-path:none}
+#screen-loadout .screen-header .btn{order:-1;min-height:max(5.6vh,32px);padding:0 22px 0 14px;clip-path:polygon(0 0,100% 0,100% 70%,88% 100%,0 100%);border:1px solid #6b4a22;background:linear-gradient(180deg,#26221c,#121110);color:#f3ead9;letter-spacing:.2em;font-weight:800}
+#screen-loadout .screen-header .btn:before{content:"\276E  "}
+#screen-loadout .screen-title{font-weight:900;font-style:italic;letter-spacing:.2em;color:#fff;margin-right:auto}
+#screen-loadout .screen-title:before{content:"\1F6D2";color:#e98a1f;margin-right:10px;font-style:normal}
+#screen-loadout .st-coins{display:flex;align-items:center;gap:8px;padding:5px 16px;background:#0008;border:1px solid #6b4a22;clip-path:polygon(8px 0,100% 0,100% 100%,0 100%,0 8px);font-size:1.05rem;color:#fff;margin:0}
+#screen-loadout .st-coins span{width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe27a,#d8921a 70%);color:transparent;overflow:hidden;box-shadow:0 0 6px #e9a43a}
+#screen-loadout .st-coins{font-size:0}#screen-loadout .st-coins b{font-size:1.05rem}
+#screen-loadout .st-wrap{gap:10px}
+#screen-loadout .st-list{width:30%;gap:6px;padding-right:2px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+#screen-loadout .st-card{flex:none;min-height:max(11vh,52px);padding:6px 10px;background:linear-gradient(90deg,#15161a,#0c0d0f);border:1px solid #2c2f35;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
+#screen-loadout .st-card.sel{border:1px solid #f0a030;background:linear-gradient(90deg,#4a3012,#15110b);box-shadow:inset 0 0 0 1px #f0a03055,0 0 12px #f0a03033}
+#screen-loadout .st-card.gear{min-height:max(8.6vh,42px)}
+#screen-loadout .st-card.gear .st-ci{width:15%}#screen-loadout .st-card.gear .st-ci img{max-height:34px;width:auto;margin:auto}
+#screen-loadout .st-ci{width:34%}
+#screen-loadout .st-cn{font-size:.78rem;letter-spacing:.08em;color:#e9e2d6}#screen-loadout .st-cn em{font-size:.58rem}#screen-loadout .st-cn em.ow{color:#9aa0a8}
+#screen-loadout .st-cl{font-size:.7rem;color:#ffc928;font-weight:800;display:flex;align-items:center;gap:5px;white-space:nowrap}
+#screen-loadout .cn{display:inline-block;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe27a,#d8921a 70%)}
+.st-sec{flex:none;font-size:.72rem;font-weight:900;letter-spacing:.22em;color:#e98a1f;padding:8px 4px 2px;border-bottom:1px solid #e98a1f66;margin-top:4px}
+#screen-loadout .st-det{display:grid;grid-template-columns:1fr 35%;gap:12px;padding:10px;background:linear-gradient(180deg,#0b0b0d,#050506);border:1px solid #3a2a14;overflow-y:auto}
+#screen-loadout .sd-main{display:flex;flex-direction:column;gap:6px;min-height:0;min-width:0;background:radial-gradient(ellipse at 50% 55%,#3a1d10aa,transparent 70%)}
+#screen-loadout .st-dn{font-size:1.5rem;letter-spacing:.06em}#screen-loadout .st-dt{border-left:3px solid #e98a1f;padding-left:8px;margin-top:2px}
+#screen-loadout .st-big{min-height:max(22vh,90px)}
+#screen-loadout .st-stats{padding:8px 10px;background:#0009;border:1px solid #2c2f35}
+#screen-loadout .st-bar{height:9px;background:#1b1c20}#screen-loadout .st-bar i{background:linear-gradient(90deg,#d77a12,#ffb24a)}#screen-loadout .st-bar u{background:#ffe08a}
+#screen-loadout .st-row{font-size:.66rem;color:#aab0b8}#screen-loadout .st-row b{color:#ffc928}
+#screen-loadout .sd-side{display:flex;flex-direction:column;gap:8px;padding:12px;background:linear-gradient(180deg,#121317,#0a0a0c);border:1px solid #6b4a22;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);min-width:0}
+#screen-loadout .sd-t{font-size:1.05rem;font-weight:900;letter-spacing:.08em;color:#fff}
+#screen-loadout .sd-lv{display:flex;align-items:center;gap:10px;font-size:.7rem;font-weight:800;color:#e9a43a;letter-spacing:.1em}
+#screen-loadout .sd-d{font-size:.74rem;color:#9ea4ac;line-height:1.4;padding:6px 0;border-top:1px solid #e98a1f55}
+#screen-loadout .sd-price{display:flex;align-items:center;justify-content:center;gap:8px;font-size:1.6rem;font-weight:900;color:#fff;padding:6px;background:#0007}
+#screen-loadout .sd-price .cn{width:20px;height:20px}
+#screen-loadout .sd-side .btn{width:100%;min-height:max(6.4vh,36px);font-weight:900;letter-spacing:.14em;font-size:.82rem}
+#screen-loadout .sd-side .btn-primary{background:linear-gradient(180deg,#ffb347,#d9780f);color:#1a1006;border-color:#ffd08a}
+#screen-loadout .sd-side .st-btns .btn{font-size:.7rem;letter-spacing:.06em}
+#screen-loadout .sd-side .dz-adb{margin-top:0;padding:8px}
+#screen-loadout .sd-side .st-ammo{margin:0}
+.lx-coin{position:absolute;right:calc(2.4vw + max(13vh,70px));top:calc(max(1.6vh,10px));height:max(7vh,34px);display:flex;align-items:center;gap:10px;padding:0 16px 0 12px;background:linear-gradient(180deg,#14161a,#08090b);border:1px solid #6b4a22;clip-path:polygon(10px 0,100% 0,100% 100%,0 100%,0 10px);color:#fff;font-weight:900;font-size:max(3.2vh,13px);z-index:4}
+.lx-coin i{width:max(3.6vh,16px);height:max(3.6vh,16px);border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe27a,#d8921a 70%);box-shadow:0 0 8px #e9a43a}
+</style>
 </head><body>
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
@@ -1014,6 +1055,7 @@ setTimeout(function(){if(window.__ldHide&&document.getElementById('ldr')&&docume
         <!-- 1. LOBBY SCREEN -->
         <div id="screen-lobby" class="menu-screen active">
             <h1 id="brand-title" style="display:none"></h1>
+            <div class="lx-coin"><i></i><b id="lx-coin-n">0</b></div>
             <div class="lx-logo2"><b>DEAD ZONE</b><i>LAST ARENA</i></div>
             <div id="mode-name" style="display:none"></div><div id="mode-desc" style="display:none"></div>
             <button class="lx-gear" onclick="showScreen('screen-settings')" aria-label="Settings"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M19.4 13a7.5 7.5 0 000-2l2.1-1.6a.5.5 0 00.1-.6l-2-3.5a.5.5 0 00-.6-.2l-2.5 1a7.4 7.4 0 00-1.7-1l-.4-2.6a.5.5 0 00-.5-.4h-4a.5.5 0 00-.5.4l-.4 2.6a7.4 7.4 0 00-1.7 1l-2.5-1a.5.5 0 00-.6.2l-2 3.5a.5.5 0 00.1.6L4.6 11a7.5 7.5 0 000 2l-2.1 1.6a.5.5 0 00-.1.6l2 3.5c.1.2.4.3.6.2l2.5-1c.5.4 1.1.7 1.7 1l.4 2.6c0 .2.2.4.5.4h4c.3 0 .5-.2.5-.4l.4-2.6c.6-.3 1.2-.6 1.7-1l2.5 1c.2.1.5 0 .6-.2l2-3.5a.5.5 0 00-.1-.6L19.4 13zM12 15.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"/></svg></button>
@@ -1338,29 +1380,32 @@ stats.coins-=c;stats.ammo[i]=have+n;saveData();renderLoadout();msg('+'+n+' round
             const L=document.getElementById('weapons-container'),D=document.getElementById('st-det');
             if(!L||!D)return;
             document.getElementById('st-coins').textContent=stats.coins||0;
+            if(stSel==='gear')stSel='g:'+GEAR[0].id;
             L.innerHTML='';
-            WEAPONS.forEach((g,i)=>{
-                const c=document.createElement('div');
-                c.className='st-card'+(i===stSel?' sel':'');
-                c.onclick=()=>{stSel=i;renderLoadout()};
-                c.innerHTML='<div class="st-ci">'+g.svg+'</div><div class="st-cn">'+g.name+(owned(i)?(settings.selectedGunIndex===i?'<em>EQUIPPED</em>':''):'<em class="lk">LOCKED</em>')+'</div><div class="st-cl">'+(owned(i)?'LV '+gunUp(i)+'/5 &bull; '+ammoOf(i)+' AMMO':PRC[i]+' &#9679;')+'</div>';if(!owned(i))c.classList.add('locked');
-                L.appendChild(c);
-            });
-            {const c=document.createElement('div');c.className='st-card gear'+(stSel==='gear'?' sel':'');c.onclick=()=>{stSel='gear';renderLoadout()};c.innerHTML='<div class="st-ci"><img src="'+GICO.med+'" style="width:78%;height:78%;object-fit:contain"></div><div class="st-cn">SURVIVAL GEAR</div><div class="st-cl">MEDKIT &bull; ARMOR &bull; GRENADE</div>';L.appendChild(c)}
-if(stSel==='gear'){renderGear(D);return}
-const g=WEAPONS[stSel],lv=gunUp(stSel),eq=settings.selectedGunIndex===stSel;
+            const row=(on,extra,ic,nm,sub,right,fn)=>{const c=document.createElement('div');c.className='st-card'+extra+(on?' sel':'');c.onclick=fn;c.innerHTML='<div class="st-ci">'+ic+'</div><div class="st-cn">'+nm+(sub||'')+'</div><div class="st-cl">'+right+'</div>';L.appendChild(c)};
+            WEAPONS.forEach((g,i)=>{row(i===stSel,owned(i)?'':' locked',g.svg,g.name,owned(i)?(settings.selectedGunIndex===i?'<em>EQUIPPED</em>':'<em class="ow">OWNED</em>'):'<em class="lk">LOCKED</em>',owned(i)?'LV '+gunUp(i)+'/5':'<i class="cn"></i>'+PRC[i],()=>{stSel=i;renderLoadout()})});
+            {const h=document.createElement('div');h.className='st-sec';h.textContent='SURVIVAL GEAR';L.appendChild(h)}
+            GEAR.forEach(g=>{row(stSel==='g:'+g.id,' gear','<img src="'+GICO[g.id]+'">',g.n,'','x'+gearN(g.id)+' / '+g.max,()=>{stSel='g:'+g.id;renderLoadout()})});
+            if(typeof stSel==='string'&&stSel.slice(0,2)==='g:'){renderGearOne(D,stSel.slice(2));return}
+            const g=WEAPONS[stSel],lv=gunUp(stSel),eq=settings.selectedGunIndex===stSel;
             const bar=(lbl,base,k)=>{const v=Math.min(100,Math.round(base*(1+k*lv)));const extra=Math.max(0,v-base);return '<div class="st-row"><span>'+lbl+'</span><div class="st-bar"><i style="width:'+Math.min(base,100)+'%"></i><u style="width:'+extra+'%"></u></div><b>'+v+'</b></div>'};
             const cost=lv<5?UPC[lv]:0,can=(stats.coins||0)>=cost;
             let pips='';for(let k=0;k<5;k++)pips+='<s class="'+(k<lv?'on':'')+'"></s>';
-            D.innerHTML='<div class="st-dh"><div><div class="st-dn">'+g.name+'</div><div class="st-dt">'+g.type+'</div></div><div class="st-pips">'+pips+'</div></div>'
+            const DS=['A silenced sidearm. Reliable and easy to handle.','Rapid-fire assault rifle. Strong all-round.','Pump-action. Devastating up close.','Bolt-action. One shot, long range.'];
+            D.innerHTML='<div class="sd-main"><div class="st-dh"><div><div class="st-dn">'+g.name+'</div><div class="st-dt">'+g.type+'</div></div></div>'
               +'<div class="st-big">'+g.svg+'</div>'
-              +'<div class="st-stats">'+bar('DAMAGE',g.stats.damage,.1)+bar('FIRE RATE',g.stats.rate,.05)+bar('RANGE',g.stats.range,0)+bar('MAGAZINE',g.stats.mag,.1)+'</div>'
-              +(owned(stSel)?(()=>{const hv=ammoOf(stSel),rm=AMM.cap[stSel]-hv,pn=Math.min(AMM.pack[stSel],rm),pc=ammoCost(stSel,pn),fc=ammoCost(stSel,rm),co=stats.coins||0;return '<div class="st-ammo"><span>AMMO</span><b>'+hv+' / '+AMM.cap[stSel]+'</b></div><div class="st-btns"><button class="btn'+(rm<=0||co<pc?' dis':'')+'" onclick="buyAmmo('+stSel+',0)">'+(rm<=0?'AMMO FULL':'+'+pn+' ROUNDS &middot; '+pc+' COINS')+'</button><button class="btn'+(rm<=0||co<fc?' dis':'')+'" onclick="buyAmmo('+stSel+',1)">'+(rm<=0?'FULL':'FILL &middot; '+fc+' COINS')+'</button></div>'})():'')
-              +(owned(stSel)?'<div class="st-btns"><button class="btn st-up'+(lv>=5||!can?' dis':'')+'" onclick="upgradeGun('+stSel+')">'+(lv>=5?'MAX LEVEL':'UPGRADE &middot; '+cost+' COINS')+'</button>'
-              +'<button class="btn '+(eq?'':'btn-primary')+'" onclick="selectGun('+stSel+')">'+(eq?'EQUIPPED':'EQUIP')+'</button></div>'
-              :'<div class="st-btns"><button class="btn btn-primary" onclick="buyGun('+stSel+')">BUY &middot; '+PRC[stSel]+' COINS</button></div>')
-              +'<div class="st-msg" id="st-msg"></div>';
+              +'<div class="st-stats">'+bar('DAMAGE',g.stats.damage,.1)+bar('FIRE RATE',g.stats.rate,.05)+bar('RANGE',g.stats.range,0)+bar('MAGAZINE',g.stats.mag,.1)+'</div></div>'
+              +'<div class="sd-side"><div class="sd-t">'+g.name+'</div><div class="sd-lv"><span>LVL '+lv+'/5</span><div class="st-pips">'+pips+'</div></div><div class="sd-d">'+(DS[stSel]||'')+'</div>'
+              +(owned(stSel)?(()=>{const hv=ammoOf(stSel),rm=AMM.cap[stSel]-hv,pn=Math.min(AMM.pack[stSel],rm),pc=ammoCost(stSel,pn),fc=ammoCost(stSel,rm),co=stats.coins||0;return '<div class="st-ammo"><span>AMMO</span><b>'+hv+' / '+AMM.cap[stSel]+'</b></div><div class="st-btns"><button class="btn'+(rm<=0||co<pc?' dis':'')+'" onclick="buyAmmo('+stSel+',0)">'+(rm<=0?'AMMO FULL':'+'+pn+' &middot; '+pc)+'</button><button class="btn'+(rm<=0||co<fc?' dis':'')+'" onclick="buyAmmo('+stSel+',1)">'+(rm<=0?'FULL':'FILL &middot; '+fc)+'</button></div>'})():'<div class="sd-price"><i class="cn"></i>'+PRC[stSel]+'</div>')
+              +(owned(stSel)?'<button class="btn st-up'+(lv>=5||!can?' dis':'')+'" onclick="upgradeGun('+stSel+')">'+(lv>=5?'MAX LEVEL':'UPGRADE &middot; '+cost+' COINS')+'</button>'
+              +'<button class="btn '+(eq?'':'btn-primary')+'" onclick="selectGun('+stSel+')">'+(eq?'EQUIPPED':'EQUIP')+'</button>'
+              :'<button class="btn btn-primary" onclick="buyGun('+stSel+')">BUY</button>')
+              +'<div class="st-msg" id="st-msg"></div></div>';
         }
+        function renderGearOne(D,id){const g=GEAR.find(x=>x.id==id),n=gearN(id),full=n>=g.max,can=(stats.coins||0)>=g.price&&!full;
+            D.innerHTML='<div class="sd-main"><div class="st-dh"><div><div class="st-dn">'+g.n+'</div><div class="st-dt">SURVIVAL GEAR &middot; KEY '+g.kn+'</div></div></div><div class="st-big"><img src="'+GICO[id]+'" style="max-height:100%;width:auto;max-width:60%"></div><div class="sd-d" style="font-size:.95rem">'+g.d+'</div></div>'
+              +'<div class="sd-side"><div class="sd-t">'+g.n+'</div><div class="sd-lv"><span>OWNED '+n+' / '+g.max+'</span></div><div class="sd-d">Use it in battle with the buttons on the right side of the screen.</div><div class="sd-price"><i class="cn"></i>'+g.price+'</div>'
+              +'<button class="btn btn-primary'+(can?'':' dis')+'" onclick="buyGear(\''+id+'\')">'+(full?'FULL':'BUY')+'</button><button class="dz-adb" onclick="adFreeGear()">FREE GEAR<small>Watch an ad</small></button><div class="st-msg" id="st-msg"></div></div>'}
         function upgradeGun(i){
             if(!owned(i))return;const lv=gunUp(i);if(lv>=5)return;const c=UPC[lv];
             if((stats.coins||0)<c){renderLoadout();document.getElementById('st-msg').textContent='Not enough coins. Win levels to earn more.';return}
@@ -1717,7 +1762,7 @@ h+='<button class="dz-adb'+(left?'':' dis')+'" onclick="adFreeGear()">WATCH AD &
 D.innerHTML=h;dmDot();const c=document.getElementById('dm-coins');if(c)c.textContent=stats.coins||0}
 function dmClaim(i,x2){const m=stats.dm.m[i];if(!m||m.c||m.p<m.n)return;const go=()=>{m.c=1;addCoins(m.r*(x2?2:1));toast('+'+(m.r*(x2?2:1))+' COINS');dmRender()};if(x2)DZAds.reward(go);else go()}
 function adFreeGear(){dmInit();if((stats.dm.free||0)>=3)return;const o=GEAR.filter(g=>gearN(g.id)<g.max);if(!o.length){toast('All gear is full');return}
-DZAds.reward(()=>{const g=o[Math.floor(Math.random()*o.length)];stats.gear=stats.gear||{};stats.gear[g.id]=gearN(g.id)+1;stats.dm.free=(stats.dm.free||0)+1;saveData();toast('+1 '+g.n);if(document.getElementById('dm-list'))dmRender();try{if(typeof stSel!=='undefined'&&stSel==='gear'&&window.renderLoadout)renderLoadout()}catch(e){}})}
+DZAds.reward(()=>{const g=o[Math.floor(Math.random()*o.length)];stats.gear=stats.gear||{};stats.gear[g.id]=gearN(g.id)+1;stats.dm.free=(stats.dm.free||0)+1;saveData();toast('+1 '+g.n);if(document.getElementById('dm-list'))dmRender();try{if(window.renderLoadout)renderLoadout()}catch(e){}})}
 function adDoubleWin(){const b=document.getElementById('win-x2');if(!b||b.classList.contains('dis')||!window.__wc)return;DZAds.reward(()=>{addCoins(window.__wc);b.classList.add('dis');b.firstChild.textContent='DOUBLED +'+window.__wc;toast('+'+window.__wc+' COINS')})}
 const _ug0=useGear;useGear=function(id){const n=gearN(id);_ug0(id);if(gearN(id)<n)dmTrack('gear')};
 function adRevive(){if(DZAds.revive)return;DZAds.reward(()=>{DZAds.revive=true;P.hp=50;window.__inv=5;over=false;running=true;paused=false;showScreen('');setMenu(false);document.body.classList.add('ingame');try{setMusic(cTrack())}catch(e){}toast('REVIVED!')})}
@@ -1732,6 +1777,8 @@ const best=m.id=='norm'?'Cleared '+(stats.lvDone||0)+' / 50':(m.id=='time'?'Best
 h+='<div class="ms-c" style="--ac:'+f[0]+'" onclick="msPick('+i+')"><img src="'+MS_IMG[m.id]+'"><div class="ms-t"><b>'+m.n+'</b><em>'+best+'</em><span>'+f[1]+'</span></div></div>'});
 h+='<div class="ms-c off"><div class="ms-t"><b>MULTIPLAYER</b><em>COMING SOON</em><span>Play with friends</span></div></div>';W.innerHTML=h}
 function msPick(i){settings.mode=i;saveData();try{renderMode()}catch(e){}handleStartGame()}
+function lobCoins(){const e=$('lx-coin-n');if(e)e.textContent=(stats.coins||0).toLocaleString()}
+const _ss0=showScreen;showScreen=function(id){_ss0(id);try{lobCoins()}catch(e){}};setTimeout(lobCoins,300);
 function lobGender(){document.body.classList.toggle('lob-m',window.DZ_GENDER==='male')}
 document.addEventListener('dz-profile',lobGender);document.addEventListener('DOMContentLoaded',lobGender);setTimeout(lobGender,0);setTimeout(lobGender,800);
 
