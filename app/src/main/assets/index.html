@@ -2435,12 +2435,12 @@ spdUpd(dt);gearTick(dt);flowT-=dt;if(flowT<=0){flowT=.3;calcFlow(cam.position.x,
 for(const e of enemies){const dx=cam.position.x-e.g.position.x,dz=cam.position.z-e.g.position.z,d=Math.hypot(dx,dz)||1;
 if(e.spd){spiderAI(e,dt,dx,dz,d);continue}
 if(e.bsp){e.run=d<12;e.sp=e.fz>0?0:e.bsp*(e.run?1.8:1)*(e.hs>0?.3:1)}
-let fdx=dx,fdz=dz;const ex=e.g.position.x,ez=e.g.position.z,los=!gridBlocked(rawG,ex,ez,cam.position.x,cam.position.z);e.mv=d>1.2*e.sc&&!(e.rg&&los&&d<e.rg.s);
+let fdx=dx,fdz=dz;const ex=e.g.position.x,ez=e.g.position.z,los=!gridBlocked(rawG,ex,ez,cam.position.x,cam.position.z);e.mv=d>1.2*e.sc&&!(e.rg&&los&&d<e.rg.s)&&!(e.atkT>0);
 if(e.mv){let mx=dx/d,mz=dz/d;if(gridBlocked(infG,ex,ez,cam.position.x,cam.position.z)){const nd=nextDir(ex,ez);if(nd){mx=nd[0];mz=nd[1];fdx=mx;fdz=mz}}e.g.position.x+=mx*e.sp*dt;e.g.position.z+=mz*e.sp*dt;pushOut(e.g.position,.5*e.sc)}
 e.g.rotation.y=Math.atan2(fdx,fdz);if(!e.mm)e.g.position.y=Math.abs(Math.sin(tm*8+e.ph))*.07;if(e.mm){const u=e.mm.material.userData.u;e.ua+=((e.mv?1:0)-e.ua)*Math.min(1,dt*8);e.ph2+=dt*3.2*e.sp*(e.mv?1:.3);e.rk=Math.max(0,e.rk-dt*7);e.hf=Math.max(0,e.hf-dt*5);
 u.uT.value=e.ph2;u.uA.value=e.ua;u.uR.value=Math.min(1,Math.max(0,(e.sp-2.8)/2));u.uK.value=e.rk;u.uH.value=e.hf;if(e.rig){try{e.rig.animate(tm+e.ph,u,e,dt)}catch(err){e.rig=null;console.warn('rig animate failed',err)}}if(e.mfm){e.mf-=dt;e.mfm.visible=e.mf>0}}
 e.cd-=dt;zvTick(e,d,dt);if(d<1.7*e.sc&&e.cd<=0&&!(e.fz>0)){zvAttack(e);e.cd=e.bsp?1.5:.9;if(e.bsp&&e.rig&&e.rig.hasAtk){e.atkT=1.4;e.pend=.7;e.cd=2}else{if(e.bsp||e.zr)e.rk=1;hurt(e.dm*(mode.dmgx||1),e)}}
-if(e.pend>0){e.pend-=dt;if(e.pend<=0&&d<2.6*e.sc&&!e.dead){e.rk=1;hurt(e.dm*(mode.dmgx||1),e)}}
+if(e.pend>0){e.pend-=dt;if(e.pend<=0&&d<1.85*e.sc&&!e.dead){e.rk=1;hurt(e.dm*(mode.dmgx||1),e)}}
 if(e.rg&&d<e.rg.r){e.rc-=dt;if(e.rc<=0&&!gridBlocked(rawG,e.g.position.x,e.g.position.z,cam.position.x,cam.position.z)){e.rc=e.rg.cd*(.8+Math.random()*.5);e.mf=.08;e.rk=1;sfx(1,1);if(Math.random()<e.rg.p)hurt(e.rg.dm*(mode.dmgx||1),e)}}
 if(e.fl>0){e.fl-=dt;if(e.fl<=0){e.bm.emissive.setHex(0);e.hm.emissive.setHex(0)}}}
 for(let i=pk.length-1;i>=0;i--){const k=pk[i];k.m.rotation.y+=dt*2;k.t-=dt;
