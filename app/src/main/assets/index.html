@@ -2357,7 +2357,7 @@ if(!e.dead&&e.rk>0)wrot(bones[S1],.55*e.rk);if(e.dead)mt.emissive.setHex(0)};
 return{group,mesh,animate,hasAtk:HASATK}};
 const img=new Image();img.onload=()=>{BR.tx=new THREE.Texture(img);BR.tx.flipY=false;BR.tx.needsUpdate=true;BR.ready=true};img.src='data:image/jpeg;base64,'+TEXB}catch(err){console.warn('boss rig failed',err)}})();return BR}
 const BRS=[mkBR(BOSSB64,BOSSTEX,2.6,0),mkBR(BOSS2B64,BOSS2TEX,2.6,.004)];const ZR=mkBR(ZB64,ZTEX,2.7,0);const DR=mkBR(DOGB64,DOGTEX,.016,0);
-function pickBR(){const a=BRS.filter(x=>x.ready);if(!a.length)return null;if(mode.id=='boss')return a[Math.random()*a.length|0];const i=((mode.id=='norm'?curLevel:P.wave)/10|0)-1,x=BRS[((i%BRS.length)+BRS.length)%BRS.length];return x.ready?x:a[0]}
+function pickBR(){const a=BRS.filter(x=>x.ready);if(!a.length)return null;if(mode.id=='boss')return BRS[1].ready?BRS[1]:a[0];const i=((mode.id=='norm'?curLevel:P.wave)/10|0)-1,x=BRS[((i%BRS.length)+BRS.length)%BRS.length];return x.ready?x:a[0]}
 const dying=[];
 const GLSL=`{float ph=uT+(position.x<0.?3.14159:0.);float wl=(1.-smoothstep(.84,.98,position.y))*smoothstep(0.,.05,abs(position.x));float wk=1.-smoothstep(.46,.56,position.y);
 float kf=max(0.,cos(ph))*.9*uA*(.6+.4*uR)*wk*wl;float cy=transformed.y-.5;float cz=transformed.z;transformed.y=.5+cy*cos(kf)-cz*sin(kf);transformed.z=cy*sin(kf)+cz*cos(kf);
