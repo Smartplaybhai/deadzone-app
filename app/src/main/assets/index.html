@@ -1315,7 +1315,7 @@ setTimeout(function(){if(window.__ldHide&&document.getElementById('ldr')&&docume
             selectedGunIndex: 0
         };
 
-        const LV_MAX=50,LV_NS=10;const UNLOCK_ALL_TEST=true;/* levels unlock normally */let lvGo=false,curLevel=1,lvLive=false,lvWinT=0,lvT=0,lvRes=null;
+        const LV_MAX=50,LV_NS=10;const UNLOCK_ALL_TEST=(!window.AndroidAds||(typeof AndroidAds.isTest==='function'&&AndroidAds.isTest()));/* levels unlock normally */let lvGo=false,curLevel=1,lvLive=false,lvWinT=0,lvT=0,lvRes=null;
         let stats = {
             lvDone: 0,
             coins: 300,

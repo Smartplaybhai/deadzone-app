@@ -80,6 +80,8 @@ class AdsBridge(private val act: Activity, private val web: WebView) {
             })
     }
 
+    @JavascriptInterface fun isTest(): Boolean = BuildConfig.DEBUG
+
     @JavascriptInterface fun isRewardedReady(): Boolean = rewarded != null
 
     @JavascriptInterface fun showInterstitial() = act.runOnUiThread {
