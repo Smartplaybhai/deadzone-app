@@ -24,9 +24,9 @@ android {
         release {
             minifyEnabled false
             signingConfig signingConfigs.debug
-            manifestPlaceholders = [admobAppId: 'ca-app-pub-2519831355714403~3861928738']
-            buildConfigField 'String', 'INTER_ID', '"ca-app-pub-2519831355714403/2226161861"'
-            buildConfigField 'String', 'REWARD_ID', '"ca-app-pub-2519831355714403/3601894075"'
+            manifestPlaceholders = [admobAppId: 'ca-app-pub-2519831355714403~3706435896']
+            buildConfigField 'String', 'INTER_ID', '"ca-app-pub-2519831355714403/7454109218"'
+            buildConfigField 'String', 'REWARD_ID', '"ca-app-pub-2519831355714403/6009165601"'
         }
     }
     compileOptions {
